@@ -1,15 +1,17 @@
 package main
 
 import (
-	"fmt"
+	"URL_OPENER/logger"
+	"URL_OPENER/procedure"
 	"os"
 
 	"github.com/charmbracelet/huh"
-	"github.com/qbuus/URL_OPENER/procedure"
 )
 
 func main() {
 	for {
+		logger.Info("<<<  URL OPENER  >>>")
+
 		var OptionToSelect string
 
 		form := huh.NewSelect[string]().
@@ -20,7 +22,7 @@ func main() {
 
 		err := form.Run()
 		if err != nil {
-			fmt.Println("Error with selection", err.Error())
+			logger.Error("Error with selection", err.Error())
 			continue
 		}
 
@@ -28,10 +30,10 @@ func main() {
 		case "test_input_string":
 			procedure.TestString()
 		case "exit":
-			fmt.Println("Exiting...")
+			logger.Info("Exiting...")
 			os.Exit(0)
 		default:
-			fmt.Println("Invalid option selected")
+			logger.Error("Invalid option selected")
 		}
 	}
 }

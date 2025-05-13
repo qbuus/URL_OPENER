@@ -1,13 +1,13 @@
 package procedure
 
 import (
-	"fmt"
+	"URL_OPENER/logger"
 
 	"github.com/charmbracelet/huh"
 )
 
 func TestString() {
-	fmt.Println("test string")
+	logger.Info("Test input string")
 
 	var testString string
 	title := "Test input string"
@@ -21,14 +21,14 @@ func TestString() {
 		Run()
 
 	if err != nil {
-		fmt.Println("Error reading input:", err)
+		logger.Error("Error reading input:", err)
 		return
 	}
 
 	if testString == "" {
-		fmt.Println("No input. Returning to menu...")
+		logger.Info("Returning to menu...")
 		return
 	}
 
-	fmt.Println("You entered:", testString)
+	logger.Info("You entered:", testString)
 }
