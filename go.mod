@@ -1,4 +1,4 @@
-module github.com/qbuus/URL_OPENER
+module URL_OPENER
 
 go 1.23.0
 
